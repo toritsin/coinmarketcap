@@ -1,5 +1,5 @@
 [![Go Reference](https://pkg.go.dev/badge/github.com/toritsin/coinmarketcap.svg)](https://pkg.go.dev/github.com/toritsin/coinmarketcap)
-[![Build Status](https://github.com/toritsin/coinmarketcap/actions/workflows/ci.yml/badge.svg)](https://github.com/toritsin/coinmarketcap/actions/workflows/ci.yml)
+[![Build Status](https://github.com/toritsin/coinmarketcap/actions/workflows/go.yml/badge.svg)](https://github.com/toritsin/coinmarketcap/actions/workflows/go.yml)
 
 Client for CoinMarketCap API [Pro Version](https://pro.coinmarketcap.com/api/v1)
 
