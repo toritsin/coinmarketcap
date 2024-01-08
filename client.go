@@ -10,7 +10,8 @@ import (
 )
 
 const (
-	apiMapUrl = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/map"
+	apiBaseUrl = "https://pro-api.coinmarketcap.com"
+	mapUrl     = "/v1/cryptocurrency/map"
 )
 
 type Config struct {
@@ -25,6 +26,7 @@ type Client interface {
 type client struct {
 	apiKey     string
 	httpClient *http.Client
+	apiBaseUrl string
 }
 
 func NewClient(cfg Config) *client {
@@ -40,7 +42,8 @@ func NewClient(cfg Config) *client {
 		httpClient: &http.Client{
 			Timeout: requestTimeout,
 		},
-		apiKey: cfg.APIKey,
+		apiKey:     cfg.APIKey,
+		apiBaseUrl: apiBaseUrl,
 	}
 }
 
@@ -61,7 +64,7 @@ func (c *client) GetMap(options MapOptions) (*MapResponse, error) {
 		params = append(params, fmt.Sprintf("symbol=%s", options.Symbol))
 	}
 
-	req, err := http.NewRequest("GET", fmt.Sprintf("%s?%s", apiMapUrl, strings.Join(params, "&")), nil)
+	req, err := http.NewRequest("GET", fmt.Sprintf("%s%s?%s", c.apiBaseUrl, mapUrl, strings.Join(params, "&")), nil)
 	if err != nil {
 		return nil, err
 	}
