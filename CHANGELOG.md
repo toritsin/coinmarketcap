@@ -1,2 +1,5 @@
+# 1.1.0
+* Added tests, Readme, Licence
+
 # 1.0.0
-* Add GetMap functionality
+* Added GetMap functionality
